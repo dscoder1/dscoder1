@@ -267,7 +267,9 @@ int main(){
  }
  */
         
-       int mat1[3][3],mat2[3][3],res[3][3];
+        // PROGRAM  >>>>>>>>>>>>>>>>   Addition Of Two Matrices
+
+  /*   int mat1[3][3],mat2[3][3],res[3][3];
        cout<<"Input Number Into 1st Matrix:";
        for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
@@ -308,5 +310,7 @@ int main(){
                 }
                 cout<<endl;
         }
-         return 0; 
+  
+  */
+        return 0; 
 }
