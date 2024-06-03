@@ -42,7 +42,7 @@ int main(){
    // c4=c2.Add(c3);
    //Also Use this.......
     c4=c2+c3; 
-    //MEANS THAT  >>>>>>  c2 calls his + function and c3 passes as a argument and returning result si stored in c4
+    //MEANS THAT  >>>>>>  c2 calls his + function and c3 passes as a argument and returning result is stored in c4
     c4.displayData();
 
     return 0;
