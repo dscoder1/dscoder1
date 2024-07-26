@@ -1,0 +1,141 @@
+1.For Show Database :
+show databases;
+Result:
++--------------------+
+| Database           |
++--------------------+
+| divya shakti 1     |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+
+2.For Using Database:
+use mysql;
+Result:
+Database changed
+
+3.For Show All Tables In Using Database:
+show tables;
+
+4.For Describing Table View:
+Desc Tablename;
+
+5.For Creating Table:
+create table Cricketers(Jersey_No int primary key,FullName varchar(20) not null,Runs int);
+
+6.For Describing Cricketers Table:
+Desc Cricketers;
+Result:
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Jersey_No | int         | NO   | PRI | NULL    |       |
+| Full_Name | varchar(20) | NO   |     | NULL    |       |
+| Runs      | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+7.For Inserting Values:
+insert into Cricketers values(100,'Virat Kohli',10000);
+Result:
+Query OK, 1 row affected 
+
+8.Another Method:
+insert into Cricketers(Jersey_No,Full_Name)values(7,'MSD');
+Result:
+Query OK, 1 row affected (0.01 sec)
+
+9.For Showing Table Contents;
+select * from Cricketers;
+Result:
++-----------+-------------+-------+
+| Jersey_No | Full_Name   | Runs  |
++-----------+-------------+-------+
+|         7 | MSD         |  NULL |
+|       100 | Virat Kohli | 10000 |
++-----------+-------------+-------+
+
+10.For Adding Another Column:
+alter table Cricketers add column Country varchar(20);
+Result:
+Query OK
+
+11.Now See Result:
+desc Cricketers;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Jersey_No | int         | NO   | PRI | NULL    |       |
+| Full_Name | varchar(20) | NO   |     | NULL    |       |
+| Runs      | int         | YES  |     | NULL    |       |
+| Country   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+12.change datatype of any column:
+alter table Cricketers modify column Jersey_No varchar(21);
+desc Cricketers;
+Result:
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Jersey_No | varchar(21) | NO   | PRI | NULL    |       |
+| Full_Name | varchar(20) | NO   |     | NULL    |       |
+| Runs      | int         | YES  |     | NULL    |       |
+| Country   | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+13.Drop Column :
+alter table Cricketers drop column country;
+desc Cricketers;
+Result:
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| Jersey_No | int         | NO   | PRI | NULL    |       |
+| Full_Name | varchar(20) | NO   |     | NULL    |       |
+| Runs      | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+14.for droping Table:
+drop table tablename;
+Result:
+Table Is Removed From database;
+
+15.for drop all data from table:
+truncate table tablename;
+
+15.for deleting data from a particular table:
+delete from Cricketers where Jersey_No =100;
+Result:
+select * from Cricketers;
++-----------+-----------+------+
+| Jersey_No | Full_Name | Runs |
++-----------+-----------+------+
+|         7 | MSD       | NULL |
++-----------+-----------+------+
+
+16.updating Value Of A Particular Column:
+update Cricketers set Jersey_No=10;
+Result:
+This Query Updates All Jersey Number Field to 10;
+select * from Cricketers;
++-----------+-----------+------+
+| Jersey_No | Full_Name | Runs |
++-----------+-----------+------+
+|        10 | MSD       | NULL |
++-----------+-----------+------+
+ 
+
+17.Update Particular Value of a particular Column:
+update Cricketers set Jersey_No=20 where Jersey_No=10;
+Result: 
+This Query Update Only those Jersey Number Whose Jersey Number is equals to 10;
+select * from Cricketers;
++-----------+-----------+------+
+| Jersey_No | Full_Name | Runs |
++-----------+-----------+------+
+|        20 | MSD       | NULL |
++-----------+-----------+------+
+
+18:
