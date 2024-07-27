@@ -138,4 +138,539 @@ select * from Cricketers;
 |        20 | MSD       | NULL |
 +-----------+-----------+------+
 
-18:
+18:Data At Present: 
+select * from Cricketers;
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        10 | Rohit Sharma     |  9000 |
+|        11 | Manish Pandey    |  9000 |
+|        12 | Hardik Pandey    |  7000 |
+|        13 | Shikhar Dhawan   |  5000 |
+|        14 | Sachin Tendulkar | 12000 |
+|        15 | Shivam Dube      |  3000 |
+|        20 | MSD              |  8000 |
++-----------+------------------+-------+
+
+
+19.Find Maximum Runs From Whole Table:
+select max(runs) from Cricketers;
+Result:
++-----------+
+| max(runs) |
++-----------+
+|     12000 |
++-----------+
+
+
+20.Find Minimum Runs From Whole Table:
+select min(runs) from Cricketers;
+Result:
++-----------+
+| min(runs) |
++-----------+
+|      3000 |
++-----------+
+
+21.Counting Rows In Table:
+select count(*) from Cricketers;
+Result:
++----------+
+| count(*) |
++----------+
+|        7 |
++----------+
+
+
+22.Sum Of Total Runs In Table:
+select sum(runs) from Cricketers;
+Result:
++-----------+
+| sum(runs) |
++-----------+
+|     53000 |
++-----------+
+
+
+23.Average Of Run:
+select avg(runs) from Cricketers;
+Result:
++-----------+
+| avg(runs) |
++-----------+
+| 7571.4286 |
++-----------+
+
+
+24.Round Number:
+select round(avg(runs),2) from Cricketers;
+Result:
++--------------------+
+| round(avg(runs),2) |
++--------------------+
+|            7571.43 |
++--------------------+
+
+
+25.Use Of Nesting Query:
+To Find all Details Of Cricketer Who Score Maximum runs: 
+select * from Cricketers where runs=(select max(runs) from Cricketers);
+Result:
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        14 | Sachin Tendulkar | 12000 |
++-----------+------------------+-------+
+1 row in set (0.00 sec)
+
+26.To Find all Details Of Cricketer Who Score Minimum runs: 
+select * from Cricketers where runs=(select min(runs) from Cricketers);
+Result:
++-----------+-------------+------+
+| Jersey_No | Full_Name   | Runs |
++-----------+-------------+------+
+|        15 | Shivam Dube | 3000 |
++-----------+-------------+------+
+
+
+27.For Finding Distinct Values From Any Specific column:
+select distinct (runs) from Cricketers;
+Result:
++-------+
+| runs  |
++-------+
+|  9000 |
+|  7000 |
+|  5000 |
+| 12000 |
+|  3000 |
+|  8000 |
++-------+
+
+
+28.Use Of substr:
+select substr(Full_Name,1,4) from Cricketers;
+Result:
++-----------------------+
+| substr(Full_Name,1,4) |
++-----------------------+
+| Rohi                  |
+| Mani                  |
+| Hard                  |
+| Shik                  |
+| Sach                  |
+| Shiv                  |
+| MSD                   |
++-----------------------+
+
+
+
+29.Replacing Some Value With Any Other Value: 
+select replace(Full_name,'Pandey','Kulkarni') from Cricketers;
+Result:
++----------------------------------------+
+| replace(Full_name,'Pandey','Kulkarni') |
++----------------------------------------+
+| Rohit Sharma                           |
+| Manish Kulkarni                        |
+| Hardik Kulkarni                        |
+| Shikhar Dhawan                         |
+| Sachin Tendulkar                       |
+| Shivam Dube                            |
+| MSD                                    |
++----------------------------------------+
+
+
+
+30.Use Of Concat:
+For Concating Values:
+select concat(jersey_no,Full_name,runs) from Cricketers;
+Result:
++----------------------------------+
+| concat(jersey_no,Full_name,runs) |
++----------------------------------+
+| 10Rohit Sharma9000               |
+| 11Manish Pandey9000              |
+| 12Hardik Pandey7000              |
+| 13Shikhar Dhawan5000             |
+| 14Sachin Tendulkar12000          |
+| 15Shivam Dube3000                |
+| 20MSD8000                        |
++----------------------------------+
+
+
+31.For Converting String To UPPER case:
+select Upper(concat(jersey_no,Full_name,runs)) from Cricketers;
+Result:
++-----------------------------------------+
+| Upper(concat(jersey_no,Full_name,runs)) |
++-----------------------------------------+
+| 10ROHIT SHARMA9000                      |
+| 11MANISH PANDEY9000                     |
+| 12HARDIK PANDEY7000                     |
+| 13SHIKHAR DHAWAN5000                    |
+| 14SACHIN TENDULKAR12000                 |
+| 15SHIVAM DUBE3000                       |
+| 20MSD8000                               |
++-----------------------------------------+
+7 rows in set (0.00 sec)
+
+32.For Converting String To lower Case: 
+select lower(concat(jersey_no,Full_name,runs)) from Cricketers;
+Result:
++-----------------------------------------+
+| lower(concat(jersey_no,Full_name,runs)) |
++-----------------------------------------+
+| 10rohit sharma9000                      |
+| 11manish pandey9000                     |
+| 12hardik pandey7000                     |
+| 13shikhar dhawan5000                    |
+| 14sachin tendulkar12000                 |
+| 15shivam dube3000                       |
+| 20msd8000                               |
++-----------------------------------------+
+
+
+33.For Removing All Spaces:
+select trim('   raj     ') from dual;
+Result:
++---------------------+
+| trim('   raj     ') |
++---------------------+
+| raj                 |
++---------------------+
+
+
+34.For Remove Space From Right: 
+select rtrim('   raj     ') from dual;
+Result:
++----------------------+
+| rtrim('   raj     ') |
++----------------------+
+|    raj               |
++----------------------+ 
+
+
+35.For Remove Space From left:
+select rtrim('   raj     ') from dual;
+Result:
++----------------------+
+| rtrim('   raj     ') |
++----------------------+
+|    raj               |
++----------------------+
+
+
+36.To Find Current Date And Time: 
+select now();
+Result:
++---------------------+
+| now()               |
++---------------------+
+| 2024-07-27 11:41:26 |
++---------------------+
+
+37.Another For Date: 
+select sysdate();
+Result:
++---------------------+
+| sysdate()           |
++---------------------+
+| 2024-07-27 11:42:37 |
++---------------------+
+
+
+38.Use Of Floor 
+select floor(12.5);
+Result:
++-------------+
+| floor(12.5) |
++-------------+
+|          12 |
++-------------+
+
+
+39.Use Of Ceil:
+select ceil(12.5);
+Result:
++------------+
+| ceil(12.5) |
++------------+
+|         13 |
++------------+
+
+
+40.Use Of abs:
+To Make A Negative Number to Positive:
+select abs(-12.5);
+result:
++------------+
+| abs(-12.5) |
++------------+
+|       12.5 |
++------------+
+
+Table:
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        10 | Rohit Sharma     |  9000 |
+|        11 | Manish Pandey    |  9000 |
+|        12 | Hardik Pandey    |  7000 |
+|        13 | Shikhar Dhawan   |  5000 |
+|        14 | Sachin Tendulkar | 12000 |
+|        15 | Shivam Dube      |  3000 |
+|        20 | MSD              |  8000 |
++-----------+------------------+-------+
+
+41.Use Of Like Operators:
+% and _  these are two wildcard Charcaters in Sql: 
+
+select * from Cricketers where Full_name like '%s_a';
+Result:
+Empty set (0.00 sec)
+
+42.Like Operator:
+select * from Cricketers where Full_name like '%sh%';
+Result:
++-----------+----------------+------+
+| Jersey_No | Full_Name      | Runs |
++-----------+----------------+------+
+|        10 | Rohit Sharma   | 9000 |
+|        11 | Manish Pandey  | 9000 |
+|        13 | Shikhar Dhawan | 5000 |
+|        15 | Shivam Dube    | 3000 |
++-----------+----------------+------+
+
+43.Use Of Relational Operator and Also Use Of ALIAS 'FN': 
+select Full_name As FN from Cricketers where Runs>=9000;
+Result:
++------------------+
+| FN               |
++------------------+
+| Rohit Sharma     |
+| Manish Pandey    |
+| Sachin Tendulkar |
++------------------+
+
+SOME SPECIAL QUERIES:
+
+44.select month(sysdate()) from dual;
+Result:
++------------------+
+| month(sysdate()) |
++------------------+
+|                7 |
++------------------+
+ 
+45.select date(sysdate()) from dual;
++-----------------+
+| date(sysdate()) |
++-----------------+
+| 2024-07-27      |
++-----------------+
+
+46.select day(sysdate()) from dual;
++----------------+
+| day(sysdate()) |
++----------------+
+|             27 |
++----------------+
+
+47.select year(sysdate()) from dual;
++-----------------+
+| year(sysdate()) |
++-----------------+
+|            2024 |
++-----------------+
+ 
+48.select year(now()) from dual;
++-------------+
+| year(now()) |
++-------------+
+|        2024 |
++-------------+
+
+49.Finding Length of Full_name:
+select Full_name,length(full_name) as Characters from Cricketers;
+Result:
++------------------+------------+
+| Full_name        | Characters |
++------------------+------------+
+| Rohit Sharma     |         12 |
+| Manish Pandey    |         13 |
+| Hardik Pandey    |         13 |
+| Shikhar Dhawan   |         14 |
+| Sachin Tendulkar |         16 |
+| Shivam Dube      |         11 |
+| MSD              |          3 |
++------------------+------------+
+
+50.Display Runs In Ascending Order:
+select * from Cricketers order by Runs asc;
+Result:
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        15 | Shivam Dube      |  3000 |
+|        13 | Shikhar Dhawan   |  5000 |
+|        12 | Hardik Pandey    |  7000 |
+|        20 | MSD              |  8000 |
+|        10 | Rohit Sharma     |  9000 |
+|        11 | Manish Pandey    |  9000 |
+|        14 | Sachin Tendulkar | 12000 |
++-----------+------------------+-------+
+ 
+51.Display Runs In Descending Order:
+select * from Cricketers order by Runs desc;
+Result:
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        14 | Sachin Tendulkar | 12000 |
+|        10 | Rohit Sharma     |  9000 |
+|        11 | Manish Pandey    |  9000 |
+|        20 | MSD              |  8000 |
+|        12 | Hardik Pandey    |  7000 |
+|        13 | Shikhar Dhawan   |  5000 |
+|        15 | Shivam Dube      |  3000 |
++-----------+------------------+-------+
+
+52.Use Of Group By Clause:
+To Grouping all Runs And Then Counting How Many Runs Are Same:
+select runs,count(runs) from Cricketers Group by Runs;
+Result:
++-------+-------------+
+| runs  | count(runs) |
++-------+-------------+
+|  9000 |           2 |
+|  7000 |           1 |
+|  5000 |           1 |
+| 12000 |           1 |
+|  3000 |           1 |
+|  8000 |           1 |
++-------+-------------+
+
+
+53.Use Of Between: 
+IN BETWEEN,BOTH LOWER AND UPPER LIMITS ARE INCLUSIVE:
+select * from Cricketers where Runs Between 5000 and 7000;
+Result:
++-----------+----------------+------+
+| Jersey_No | Full_Name      | Runs |
++-----------+----------------+------+
+|        12 | Hardik Pandey  | 7000 |
+|        13 | Shikhar Dhawan | 5000 |
++-----------+----------------+------+
+
+54.Use Of And:
+Both Conditions Must Be True:
+select * from Cricketers where Runs>3000 and Runs<10000;
+Result:
++-----------+----------------+------+
+| Jersey_No | Full_Name      | Runs |
++-----------+----------------+------+
+|        10 | Rohit Sharma   | 9000 |
+|        11 | Manish Pandey  | 9000 |
+|        12 | Hardik Pandey  | 7000 |
+|        13 | Shikhar Dhawan | 5000 |
+|        20 | MSD            | 8000 |
++-----------+----------------+------+
+
+55.Use Of IN:
+Conditions are Only Matched In These Values i.e.9000 and 5000:
+select * from Cricketers where Runs in(9000,5000);
++-----------+----------------+------+
+| Jersey_No | Full_Name      | Runs |
++-----------+----------------+------+
+|        10 | Rohit Sharma   | 9000 |
+|        11 | Manish Pandey  | 9000 |
+|        13 | Shikhar Dhawan | 5000 |
++-----------+----------------+------+
+
+56.Use Of HAVING Clause:
+HAVING is used only with Group By:
+Display Only Those Result whose count(runs)>2:
+select runs,count(runs) from Cricketers Group by Runs having count(runs)>1;
++------+-------------+
+| runs | count(runs) |
++------+-------------+
+| 9000 |           2 |
++------+-------------+
+
+56.Creating View From Particular Table: 
+create view view1 as (select runs from Cricketers);
+Result:
+Query OK
+
+57.Display View1:
+select * from view1;
++-------+
+| runs  |
++-------+
+|  9000 |
+|  9000 |
+|  7000 |
+|  5000 |
+| 12000 |
+|  3000 |
+|  8000 |
++-------+
+
+58.Updating View1:
+Working Of View Is Same As Table Works:
+
+update view1 set runs=4500 where runs=9000;
+Result:
+Query OK  
+
+59.Display View After Updating:
+select * from view1;
+Result:Value Changed:
++-------+
+| runs  |
++-------+
+|  4500 |
+|  4500 |
+|  7000 |
+|  5000 |
+| 12000 |
+|  3000 |
+|  8000 |
++-------+
+ 
+
+60.And Display Cricketers Table:
+And Value Is Also Change In Cricketers Table With Changing In View: 
+select * from Cricketers;
+Result:
++-----------+------------------+-------+
+| Jersey_No | Full_Name        | Runs  |
++-----------+------------------+-------+
+|        10 | Rohit Sharma     |  4500 |
+|        11 | Manish Pandey    |  4500 |
+|        12 | Hardik Pandey    |  7000 |
+|        13 | Shikhar Dhawan   |  5000 |
+|        14 | Sachin Tendulkar | 12000 |
+|        15 | Shivam Dube      |  3000 |
+|        20 | MSD              |  8000 |
++-----------+------------------+-------+
+
+61.For Drop Database;
+Drop Database_name;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
